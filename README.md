@@ -400,8 +400,8 @@ ext4 / xfs / btrfs / vfat(exFAT 兼容) / exfat / ntfs / f2fs
 
 ```cmd
 net use * /delete /y
-cmdkey /delete:192.168.0.167
-net use \\192.168.0.167\home /user:192.168.0.167\ldy *
+cmdkey /delete:192.168.0.***
+net use \\192.168.0.***\home /user:192.168.0.***\user *
 ```
 
 ---
@@ -634,8 +634,8 @@ sudo NETROUTER_PASSWORD='NewPass123' python3 route.py
 # 1) 检查 Samba 用户
 sudo pdbedit -L
 
-# 2) 若 ldy 不在，添加
-sudo smbpasswd -a ldy
+# 2) 若 user 不在，添加
+sudo smbpasswd -a user
 
 # 3) 检查 Guest 策略
 sudo testparm -s | grep "map to guest"
@@ -645,10 +645,10 @@ sudo testparm -s | awk '/\[public\]/,/^\[/' | head -20
 
 # 5) Windows 端清凭据（在 Windows CMD）
 net use * /delete /y
-cmdkey /delete:192.168.0.167
+cmdkey /delete:192.168.0.***
 
 # 6) 用明确用户名连接
-net use \\192.168.0.167\home /user:192.168.0.167\ldy *
+net use \\192.168.0.***\home /user:192.168.0.***\user *
 ```
 
 ### 虚拟机创建失败
@@ -703,10 +703,10 @@ sudo python3 route.py
 net start ComputerBrowser
 
 :: 2) 或者直接用 IP 访问
-\\192.168.0.167\public
+\\192.168.0.***\public
 
 :: 3) 或映射网络驱动器
-net use Z: \\192.168.0.167\public /user:192.168.0.167\ldy *
+net use Z: \\192.168.0.***\public /user:192.168.0.***\user *
 ```
 
 ### Q: 修改 fstab 后无法开机？
